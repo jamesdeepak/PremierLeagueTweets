@@ -40,7 +40,7 @@ class TweetListener(tweepy.StreamListener):
         time.sleep(10)
 
 
-config = cnfg.load(".ssh/twitter.cfg")
+config = cnfg.load("~/PremierLeagueTweets/twitter.cfg")
 
 auth = tweepy.OAuthHandler(config["consumer_key"],
                            config["consumer_secret"])
