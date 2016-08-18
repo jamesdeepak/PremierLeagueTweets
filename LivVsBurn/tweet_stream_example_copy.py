@@ -5,12 +5,13 @@ from __future__ import print_function
 import tweepy
 import time
 import cnfg
+from pymongo import MongoClient
 
 
 class TweetListener(tweepy.StreamListener):
 
     def __init__(self):
-        super().__init__(*args)
+        super().__init__()
         client = MongoClient()
         # Use tweetdb database
         self.db = client.tweetdb
@@ -39,8 +40,12 @@ class TweetListener(tweepy.StreamListener):
         print('Timed Out.  Might be rate-limited.  Introduce Delay in the process.  ')
         time.sleep(10)
 
+import os
 
-config = cnfg.load("~/PremierLeagueTweets/twitter.cfg")
+CUR_DIR = os.path.dirname(os.path.abspath(__file__))
+twitter_config = os.path.join(CUR_DIR, "..", "twitter.cfg")
+
+config = cnfg.load(twitter_config)
 
 auth = tweepy.OAuthHandler(config["consumer_key"],
                            config["consumer_secret"])
