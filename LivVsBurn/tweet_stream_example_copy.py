@@ -16,8 +16,8 @@ class TweetListener(tweepy.StreamListener):
         # Use tweetdb database
         self.db = client.tweetdb
 
-    def on_status(self, tweet):
-        print(tweet.text)
+    #def on_status(self, tweet):
+        #print(tweet.text)
         # If we need to save , we can put save command to save to mongodb
 
     def on_data(self, data):
@@ -29,6 +29,7 @@ class TweetListener(tweepy.StreamListener):
             # We only want to store tweets in English
             if "lang" in datajson and datajson["lang"] == "en":
                 # Store tweet info into the cooltweets collection.
+                print("Yes")
                 self.db.tweetdb.insert(datajson)
         except Exception:
             print("Error in parsing data {}".format(data))
