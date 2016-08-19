@@ -15,7 +15,7 @@ class TweetListener(tweepy.StreamListener):
         client = MongoClient()
         # Use tweetdb database
         self.db = client["tweetdb"]
-        self.collection = db["TwitterLivBur"]
+        self.collection = self.db["TwitterLivBur"]
 
     def on_status(self, tweet):
         print(tweet.text)
