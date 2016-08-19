@@ -16,8 +16,8 @@ class TweetListener(tweepy.StreamListener):
         # Use tweetdb database
         self.db = client.tweetdb
 
-    #def on_status(self, tweet):
-        #print(tweet.text)
+    def on_status(self, tweet):
+        print("YES")
         # If we need to save , we can put save command to save to mongodb
 
     def on_data(self, data):
