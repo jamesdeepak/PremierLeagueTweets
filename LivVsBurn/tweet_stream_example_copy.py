@@ -5,6 +5,7 @@ from __future__ import print_function
 import tweepy
 import time
 import cnfg
+import json
 from pymongo import MongoClient
 
 
@@ -17,9 +18,9 @@ class TweetListener(tweepy.StreamListener):
         self.db = client["tweetdb"]
         self.collection = self.db["TwitterLivBur"]
 
-    def on_status(self, tweet):
-        print(tweet.text)
-        # If we need to save , we can put save command to save to mongodb
+    # def on_status(self, tweet):
+    #     print(tweet.text)
+    #     # If we need to save , we can put save command to save to mongodb
 
     def on_data(self, data):
         """This will be called each time we receive stream data"""
