@@ -60,5 +60,7 @@ tweet_listener = TweetListener()
 tweet_stream = tweepy.Stream(auth = auth, listener=tweet_listener)
 
 tweet_stream.filter(track=['#lfc','@lfc','lfc', 'liverpool','klopp','BurLiv'
-    , '#BurLiv', '#LivBur','LivBur'
+    ,'EPL','#EPL','#BPL','Premier League'
+    ,'Coutinho','Firmino','Moreno','Emre'
+    , 'YNWA','#YNWA','Never Walk Alone','#BurLiv', '#LivBur','LivBur'
     ,'@BurnleyOfficial','BurnleyOfficial','Burnley','#Bur'])
